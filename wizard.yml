@@ -1,3 +1,16 @@
+- type: question
+  id: project
+  name: Type of Resolutions
+  description: What is the board taking action about?
+  responses:
+    - id: initial
+      name: Initial Formation
+      notes:
+        - incorporation
+        - officers
+        - accounting year
+        - banking
+
 - type: input
   id: name
   name: Corporation Name
@@ -15,19 +28,6 @@
       name: California
 
 - type: question
-  id: project
-  name: Type of Resolutions
-  description: What is the board taking action about?
-  responses:
-    - id: initial
-      name: Initial Formation
-      notes:
-        - incorporation
-        - officers
-        - accounting year
-        - banking
-
-- type: question
   id: exemption
   name: Corporation Type
   description: What type of organization is the corporation?
@@ -36,11 +36,19 @@
       name: Business
     - id: charity
       name: Charity
+      notes:
+        - exempt from federal tax under 501(c)(3)
+    - id: league
+      name: Business League
+      notes:
+        - exempt from federal tax under 501(c)(6)
 
 - type: question
   id: members
   requires:
-    exemption: charity
+    or:
+      - exemption: charity
+      - exemption: league
   name: Members
   description: Will the corporation have members?
   responses:
@@ -54,7 +62,7 @@
   requires:
     and:
       - project: initial
-      - charity: no
+      - exemption: business
   name: CEO
   description: What is the full legal name of the chief executive officer?
   placeholder: Jane Decider
@@ -64,7 +72,7 @@
   requires:
     and:
       - project: initial
-      - charity: yes
+      - exemption: charity
   name: Executive Director
   description: What is the full legal name of the executive director?
   placeholder: Jane Decider
