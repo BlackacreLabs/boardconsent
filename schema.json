@@ -7,7 +7,6 @@
       {
         "title": "question",
         "type": "object",
-        "additionalProperties": false,
         "required": [
           "type",
           "id",
@@ -36,7 +35,6 @@
             "minItems": 1,
             "items": {
               "type": "object",
-              "additionalProperties": false,
               "required": [
                 "id",
                 "name"
@@ -51,15 +49,16 @@
                 "notes": {
                   "$ref": "#/definitions/notes"
                 }
-              }
+              },
+              "additionalProperties": false
             }
           }
-        }
+        },
+        "additionalProperties": false
       },
       {
         "title": "input",
         "type": "object",
-        "additionalProperties": false,
         "required": [
           "type",
           "id",
@@ -88,7 +87,8 @@
           "notes": {
             "$ref": "#/definitions/notes"
           }
-        }
+        },
+        "additionalProperties": false
       }
     ]
   },
@@ -108,7 +108,6 @@
     },
     "conjunction": {
       "type": "object",
-      "additionalProperties": false,
       "required": [
         "and"
       ],
@@ -120,14 +119,14 @@
             "$ref": "#/definitions/condition"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "description": {
       "$ref": "#/definitions/text"
     },
     "disjunction": {
       "type": "object",
-      "additionalProperties": false,
       "required": [
         "or"
       ],
@@ -139,7 +138,8 @@
             "$ref": "#/definitions/condition"
           }
         }
-      }
+      },
+      "additionalProperties": false
     },
     "id": {
       "type": "string",
@@ -157,12 +157,12 @@
     },
     "responseSet": {
       "type": "object",
-      "additionalProperties": false,
       "patternProperties": {
         "^[a-z]+$": {
           "$ref": "#/definitions/id"
         }
-      }
+      },
+      "additionalProperties": false
     },
     "text": {
       "type": "string",
