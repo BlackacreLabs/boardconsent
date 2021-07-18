@@ -49,11 +49,7 @@
                   "$ref": "#/definitions/text"
                 },
                 "notes": {
-                  "type": "array",
-                  "minItems": 1,
-                  "items": {
-                    "$ref": "#/definitions/text"
-                  }
+                  "$ref": "#/definitions/notes"
                 }
               }
             }
@@ -85,6 +81,9 @@
           },
           "placeholder": {
             "$ref": "#/definitions/text"
+          },
+          "notes": {
+            "$ref": "#/definitions/notes"
           }
         }
       }
@@ -100,6 +99,13 @@
     },
     "description": {
       "$ref": "#/definitions/text"
+    },
+    "notes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/text"
+      }
     },
     "condition": {
       "anyOf": [
