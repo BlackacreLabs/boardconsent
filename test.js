@@ -1,7 +1,8 @@
-const tape = require('tape')
-const fs = require('fs')
-const yaml = require('js-yaml')
 const AJV = require('ajv')
+const fs = require('fs')
+const mustache = require('mustache')
+const tape = require('tape')
+const yaml = require('js-yaml')
 
 const ajv = new AJV({ allErrors: true })
 
@@ -12,6 +13,7 @@ tape('schema', test => {
     schema = require('./schema')
   }, 'valid JSON')
   test.assert(ajv.validateSchema(schema), 'valid JSON schema')
+
   test.end()
 })
 
@@ -26,6 +28,18 @@ tape('wizard', test => {
   const validate = ajv.compile(schema)
   validate(wizard)
   test.same(validate.errors, null, 'conforms to schema')
+
+  test.end()
+})
+
+let text
+
+tape('text', test => {
+  text = fs.readFileSync('./text.md', 'utf8')
+
+  test.doesNotThrow(() => {
+    mustache.parse(text)
+  }, 'valid Mustache')
 
   test.end()
 })

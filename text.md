@@ -2,8 +2,7 @@
 title: Action by Unanimous Written Consent of the Board of Directors
 ---
 
-The undersigned directors of {{{name}}}, a {{#jurisdiction
-=delaware}}Delaware{{/jurisdiction=delaware}}{{#jurisdiction=california}}California{{/jurisdiction=california}} corporation, all the members of the corporation's board of directors, adopt the following resolutions by unanimous written consent under {{#jurisdiction=delaware}}section 141(f) of the Delaware General Corporation Law{{/jurisdiction=delaware}}{{#jurisdiction=california}}section 307(b) of the General Corporation Law{{/jurisdiction=california}} and the corporation's bylaws.
+The undersigned directors of {{{name}}}, a {{#jurisdiction=delaware}}Delaware{{/jurisdiction=delaware}}{{#jurisdiction=california}}California{{/jurisdiction=california}} corporation, all the members of the corporation's board of directors, adopt the following resolutions by unanimous written consent under {{#jurisdiction=delaware}}section 141(f) of the Delaware General Corporation Law{{/jurisdiction=delaware}}{{#jurisdiction=california}}section 307(b) of the General Corporation Law{{/jurisdiction=california}} and the corporation's bylaws.
 
 {{#project=initial}}
 # Incorporator
