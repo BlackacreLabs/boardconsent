@@ -1,0 +1,106 @@
+- type: input
+  id: name
+  name: Corporation Name
+  description: What is the full legal name of the corporation?
+  placeholder: Acme, Inc.
+
+- type: question
+  id: jurisdiction
+  name: Corporate Jurisdiction
+  description: Under which state's law was the corporation formed?
+  responses:
+    - id: delaware
+      name: Delaware
+    - id: california
+      name: California
+
+- type: question
+  id: project
+  name: Type of Resolutions
+  description: What is the board taking action about?
+  responses:
+    - id: initial
+      name: Initial Formation
+      notes:
+        - incorporation
+        - officers
+        - accounting year
+        - banking
+
+- type: question
+  id: exemption
+  name: Corporation Type
+  description: What type of organization is the corporation?
+  responses:
+    - id: business
+      name: Business
+    - id: charity
+      name: Charity
+
+- type: question
+  id: members
+  requires:
+    exemption: charity
+  name: Members
+  description: Will the corporation have members?
+  responses:
+    - id: yes
+      name: Yes
+    - id: no
+      name: No
+
+- type: input
+  id: ceo
+  requires:
+    and:
+      - project: initial
+      - charity: no
+  name: CEO
+  description: What is the full legal name of the chief executive officer?
+  placeholder: Jane Decider
+  
+- type: input
+  id: ed
+  requires:
+    and:
+      - project: initial
+      - charity: yes
+  name: Executive Director
+  description: What is the full legal name of the executive director?
+  placeholder: Jane Decider
+
+- type: input
+  id: cfo
+  requires:
+    project: initial
+  name: Chief Financial Officer
+  description: What is the full legal name of the chief financial officer?
+  placeholder: Joe Counter
+
+- type: input
+  id: treasurer
+  requires:
+    project: initial
+  name: Treasurer
+  description: What is the full legal name of the treasurer?
+  placeholder: Joe Counter
+
+- type: input
+  id: secretary
+  requires:
+    project: initial
+  name: Secretary
+  description: What is the full legal name of the corporate secretary?
+  placeholder: Jim Scribbler
+
+- type: question
+  id: conflicts
+  name: Conflicts of Interest Policy
+  description: Will you adopt a conflicts of interest policy?
+  responses:
+    - id: yes
+      name: Yes
+      notes:
+        - attach it to the resolutions
+    - id: no
+      name: No
