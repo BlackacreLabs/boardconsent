@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "devDependencies": {
+    "ajv": "^8.6.2",
+    "js-yaml": "^4.1.0",
+    "tape": "^5.2.2"
+  },
+  "scripts": {
+    "test": "node test.js"
+  }
+}

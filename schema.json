@@ -82,6 +82,9 @@
           "placeholder": {
             "$ref": "#/definitions/text"
           },
+          "requires": {
+            "$ref": "#/definitions/condition"
+          },
           "notes": {
             "$ref": "#/definitions/notes"
           }
